@@ -6,10 +6,11 @@ import 'package:movie_app/pages/movie_details.dart';
 class MovieCard extends StatelessWidget {
   const MovieCard({
     super.key,
-    required this.movie,
+    required this.movie, this.isDetails = false,
   });
 
   final Movie movie;
+  final bool isDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,7 @@ class MovieCard extends StatelessWidget {
               ],
             ),
           ),
-          TextButton(onPressed: () {
+         isDetails ? const Text("") : TextButton(onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetails(movie: movie,)));
           }, child: const Text("Read More"))
         ],
